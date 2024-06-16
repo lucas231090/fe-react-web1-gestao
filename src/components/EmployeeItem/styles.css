@@ -1,0 +1,40 @@
+li.employee-item {
+  background: #fff;
+  box-shadow: 0 0 14px 0 rgba(0, 0, 0, 0.02);
+  border-radius: 4px;
+  padding: 24px;
+}
+
+li.employee-item header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+li.employee-item header .employees-info {
+  margin-left: 10px;
+}
+.employees-info strong {
+  display: block;
+  font-size: 16px;
+  color: #333;
+}
+.employees-info span {
+  font-size: 14px;
+  color: #999;
+  margin-top: 2px;
+}
+li.employee-item p {
+  color: #666;
+  font-size: 16px;
+  line-height: 20px;
+  margin: 10px 0;
+}
+li.employee-item a {
+  color: #8e4dff;
+  font-size: 14px;
+  text-decoration: none;
+}
+li.employee-item a:hover {
+  color: #5a2ea6;
+}
