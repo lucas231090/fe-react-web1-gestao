@@ -23,7 +23,7 @@ function App() {
       }
     };
     fetchEmployees();
-  }, []);
+  }, [employees]);
 
   async function handleAddEmployee(data) {
     const response = await api.post("/employees", data);
