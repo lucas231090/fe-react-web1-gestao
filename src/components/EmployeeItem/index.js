@@ -1,23 +1,31 @@
+import { format } from "date-fns";
 import "./styles.css";
 
-export default function EmployeeItem() {
-  const email = "lucas@mail.com";
-  const salary = 1200;
-  const data = "23/10/1990";
-  const department = "RH";
+const formatSalary = (salary) => {
+  return salary.replace(".", ",");
+};
+export default function EmployeeItem({ employee }) {
+  const formattedSalary = formatSalary(employee.salary);
+  const formattedHireDate = format(new Date(employee.hireDate), "dd/MM/yyyy");
   return (
     <li className="employee-item">
       <header>
         <div className="employees-info">
-          <strong>Lucas José</strong>
-          <span>Professor UFPR</span>
+          <div className="name-icons">
+            <strong>{employee.name}</strong>
+            <span className="icon-buttons">
+              <i className="fas fa-edit"></i>
+              <i className="fas fa-trash-alt"></i>
+            </span>
+          </div>
+          <span className="title">{employee.position}</span>
         </div>
       </header>
       <div>
-        <p>email: {email}</p>
-        <p>salario: {salary}</p>
-        <p>data contratação: {data}</p>
-        <p>departamento: {department}</p>
+        <p>E-mail: {employee.email}</p>
+        <p>Remuneração: R$ {formattedSalary}</p>
+        <p>Data Contratação: {formattedHireDate}</p>
+        <p>Departamento: {employee.department_name}</p>
       </div>
     </li>
   );

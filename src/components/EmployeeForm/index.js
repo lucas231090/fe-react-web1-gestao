@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import api from "../../services/api";
 
-export default function EmployeeForm() {
+export default function EmployeeForm({ onSubmit }) {
   const [employeeName, setEmployeeName] = useState("");
   const [employeeEmail, setEmployeeEmail] = useState("");
   const [employeePosition, setEmployeePosition] = useState("");
@@ -26,21 +26,21 @@ export default function EmployeeForm() {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    const employeeData = {
+    await onSubmit({
       name: employeeName,
       email: employeeEmail,
       position: employeePosition,
       salary: parseFloat(employeeSalary),
       transportAllowance: employeeTransport,
       department_id: departmentId,
-    };
-    try {
-      const response = await api.post("/employees", employeeData);
-      console.log("Employee saved:", response.data);
-      window.location.reload();
-    } catch (error) {
-      console.error("Erro ao salvar funcionário:", error);
-    }
+    });
+
+    setEmployeeName("");
+    setEmployeeEmail("");
+    setEmployeePosition("");
+    setEmployeeSalary("");
+    setEmployeeTransport("");
+    setDepartmentId("");
   };
 
   return (

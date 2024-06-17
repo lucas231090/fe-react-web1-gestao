@@ -76,7 +76,7 @@ aside form .input-block + .input-block {
 }
 
 input:checked + .slider {
-  background-color: #7d40e7;
+  background-color: #5061fc;
 }
 
 input:checked + .slider:before {
@@ -114,7 +114,7 @@ aside form button[type="submit"] {
   width: 100%;
   border: 0;
   margin-top: 30px;
-  background: #7d40e7;
+  background: #5061fc;
   border-radius: 4px;
   padding: 15px 20px;
   font-size: 16px;
@@ -125,7 +125,11 @@ aside form button[type="submit"] {
 }
 
 aside form button[type="submit"]:hover {
-  background: #6931ca;
+  background: #6674f4;
+}
+
+aside form button[type="submit"]:active {
+  background: #3346f0;
 }
 
 .input-block select {
@@ -141,5 +145,5 @@ aside form button[type="submit"]:hover {
 
 .input-block select:hover,
 .input-block select:focus {
-  border-bottom-color: #7d40e7;
+  border-bottom-color: #6674f4;
 }
