@@ -27,7 +27,6 @@ function App() {
 
   async function handleAddEmployee(data) {
     const response = await api.post("/employees", data);
-
     setEmployees([...employees, response.data]);
   }
 
@@ -39,8 +38,8 @@ function App() {
       </aside>
       <main>
         <ul>
-          {employeesList.map((employees) => (
-            <EmployeeItem key={employees.id} employee={employees} />
+          {employeesList.map((employee) => (
+            <EmployeeItem key={employee.id} employee={employee} />
           ))}
         </ul>
       </main>

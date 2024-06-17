@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import api from "../../services/api";
 
-export default function EmployeeForm({ onSubmit }) {
+export default function EmployeeForm({ onSubmit, initialData }) {
   const [employeeName, setEmployeeName] = useState("");
   const [employeeEmail, setEmployeeEmail] = useState("");
   const [employeePosition, setEmployeePosition] = useState("");
@@ -23,6 +23,17 @@ export default function EmployeeForm({ onSubmit }) {
     fetchDepartments();
   }, []);
 
+  useEffect(() => {
+    if (initialData) {
+      setEmployeeName(initialData.name);
+      setEmployeeEmail(initialData.email);
+      setEmployeePosition(initialData.position);
+      setEmployeeSalary(initialData.salary.toString());
+      setEmployeeTransport(initialData.transportAllowance);
+      setDepartmentId(initialData.department_id);
+    }
+  }, [initialData]);
+
   const handleSubmit = async (event) => {
     event.preventDefault();
 
@@ -39,7 +50,7 @@ export default function EmployeeForm({ onSubmit }) {
     setEmployeeEmail("");
     setEmployeePosition("");
     setEmployeeSalary("");
-    setEmployeeTransport("");
+    setEmployeeTransport(false);
     setDepartmentId("");
   };
 
